@@ -1,0 +1,106 @@
+// USER VARIABLES SECTION
+
+$accent: orange // Accent Color
+$fontsize: 16px // Body Font Size
+$textcolor: #333 // Text Color
+$lineheight: 1.65 // Document Line Height
+$userfont: roboto-oh5, sans-serif // User Font Family
+$systemfont: -apple-system, BlinkMacSystemFont, Arial, sans-serif // System Font Family
+$mainBackImg-color: #E9DED4
+$mainBackImg: rgba($mainBackImg-color, 0.88)
+$headerfont: golos-oh5, sans-serif
+$mainHeaderfont: merriweather, serif // main section Family
+
+// Bootstrap compatible gutter variable => $gutter
+$grid-gutter-width: 30px
+$gutter: $grid-gutter-width
+
+// IMPORT SECTION
+
+@use'node_modules/bootstrap/scss/bootstrap-reboot.scss' // Bootstrap Reboot collection
+@use 'node_modules/bootstrap/scss/mixins/_breakpoints.scss' // Bootstrap Breakpoints mixin
+@import 'node_modules/bootstrap/scss/bootstrap-grid.scss' // Optional Bootstrap Grid
+// @import 'node_modules/bootstrap/scss/_utilities.scss' // Optional Bootstrap Utilites
+
+// FONTS LOAD SECTION
+
+@mixin font($fname, $fstyle, $fweight, $furl)
+	@font-face
+		font-family: $fname
+		font-style: $fstyle
+		font-weight: $fweight
+		src: url($furl) format('woff2')
+
+@include font('roboto-oh5', normal, 400, '../fonts/roboto-regular-webfont.woff2')
+@include font('roboto-oh5', italic, 400, '../fonts/roboto-italic-webfont.woff2')
+@include font('roboto-oh5', normal, 700, '../fonts/roboto-bold-webfont.woff2')
+@include font('roboto-oh5', italic, 700, '../fonts/roboto-bolditalic-webfont.woff2')
+@include font('golos-oh5', bold, 900, '../fonts/golos-webfont.woff2')
+@include font('merriweather', bold, 900, '../fonts/merriweather-regular.woff2')
+
+// GENERAL CSS SETTINGS
+
+::placeholder
+	color: #666
+
+::selection
+	background-color: $accent
+	color: #fff
+
+input, textarea
+	outline: none
+	&:focus:required:invalid
+		border-color: red
+	&:required:valid
+		border-color: green
+
+body
+	font-family: $userfont
+	font-size: $fontsize
+	line-height: $lineheight
+	color: $textcolor
+	min-width: 320px
+	position: relative
+	overflow-x: hidden
+
+html, body
+	height: 100%
+
+p
+	margin: 0
+
+.headerText
+	font-family: $headerfont
+	font-size: .9rem
+	line-height: 1
+	font-weight: 700
+	text-transform: uppercase
+	letter-spacing: 0.01em
+	text-align: left
+	text-underline-position: from-font
+	text-decoration-skip-ink: none
+
+.mainAddText
+	font-family: $headerfont
+
+
+	
+.headerTextContainer
+	font-family: $mainHeaderfont
+	text-transform: uppercase
+
+.ticker__item, .transformationHeader, .attendeesHeader
+	font-family: $mainHeaderfont
+
+.btn
+	font-family: $headerfont
+
+.donationInfo, .advInfo
+	font-family: $mainHeaderfont
+
+.advTableInfo, .advTableRef
+	font-family: $headerfont
+
+.transformationSection, .attendeesSection, .swiper-pagination, .addTextContainer
+	font-family: $headerfont
+

@@ -1,0 +1,58 @@
+$duration: 30s
+
+@keyframes ticker 
+  0% 
+    -webkit-transform: translate3d(0, 0, 0)
+    transform: translate3d(0, 0, 0)
+    visibility: visible
+  100% 
+    -webkit-transform: translate3d(-100%, 0, 0)
+    transform: translate3d(-100%, 0, 0)
+
+@-webkit-keyframes ticker 
+  0% 
+    -webkit-transform: translate3d(0, 0, 0)
+    transform: translate3d(0, 0, 0)
+    visibility: visible
+  
+
+  100% 
+    -webkit-transform: translate3d(-100%, 0, 0)
+    transform: translate3d(-100%, 0, 0)
+  
+
+.ticker-wrap 
+  width: 100%
+  overflow: hidden
+  height: 60px
+  background-color: rgba(255, 0, 0, 0.9) 
+  padding-left: 100%  
+  padding-right: 100px
+  box-sizing: content-box
+
+.ticker 
+  display: inline-block
+  height: 1rem
+  white-space: nowrap
+  padding-right: 100%
+  box-sizing: content-box
+
+  animation-iteration-count: infinite
+  animation-timing-function: linear
+  animation-name: ticker
+  animation-duration: $duration
+
+  &__item 
+    display: inline-block
+    padding: 10px 0.5rem
+    font-size: 22px
+    color: white
+    text-transform: uppercase
+  &__item::after 
+      content: url('../../../images/src/ellipse.png')
+      position: relative
+      top: -5px
+      left: 10px
+  &__item:last-child::after
+      content: ''
+
